@@ -1,0 +1,33 @@
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+  <br />
+</div>
+<div *ngIf="dataRetrieved; else noDataRetrieved" class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-12">
+      <ul>
+        <li *ngFor="let recordLabel of recordLabels">
+          <span
+            [ngStyle]="{
+              color: recordLabel.name === 'No Record Label' ? 'red' : 'black'
+            }"
+            >{{ recordLabel?.name }}</span
+          >
+          <ul>
+            <li *ngFor="let band of recordLabel.bands">
+              {{ band?.name }}
+              <ul>
+                <li *ngFor="let festival of band.festivals">
+                  {{ festival?.name }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<ng-template #noDataRetrieved>
+  No data is retrieved. Please try again.
+</ng-template>
