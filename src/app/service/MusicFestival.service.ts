@@ -4,7 +4,7 @@ import { Observable, of, throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
 @Injectable()
-export class EAMusicFestivalService {
+export class MusicFestivalService {
   constructor(public http: HttpClient) {}
 
   getData(): Observable<any> {

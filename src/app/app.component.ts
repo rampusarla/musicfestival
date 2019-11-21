@@ -1,4 +1,4 @@
-import { EAMusicFestivalService } from "./service/EAMusicFestival.service";
+import { MusicFestivalService } from "./service/musicFestival.service";
 import { Component, OnInit } from "@angular/core";
 import { Band } from "./model/Band.model";
 import { RecordLabel } from "./model/RecordLabel.model";
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   bands: Band[] = [];
   recordLabels: any = [];
 
-  constructor(private eaMusicFestivalService: EAMusicFestivalService) {}
+  constructor(private eaMusicFestivalService: MusicFestivalService) {}
 
   ngOnInit(): void {
     this.eaMusicFestivalService.getData().subscribe((data: any) => {

@@ -1,21 +1,21 @@
-import { NgModule, Optional, SkipSelf, ModuleWithProviders, ErrorHandler } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  NgModule,
+  Optional,
+  SkipSelf,
+  ModuleWithProviders,
+  ErrorHandler
+} from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 // App level services
-import { EAMusicFestivalService } from './EAMusicFestival.service';
+import { MusicFestivalService } from "./musicFestival.service";
 
 @NgModule({
-  declarations: [
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule
-  ],
-  exports: [
-    RouterModule
-  ],
+  declarations: [],
+  imports: [CommonModule, HttpClientModule],
+  exports: [RouterModule],
   providers: []
 })
 export class ServiceModule {
@@ -23,14 +23,14 @@ export class ServiceModule {
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: ServiceModule,
-      providers: [
-        EAMusicFestivalService
-      ]
+      providers: [MusicFestivalService]
     };
   }
   constructor(@Optional() @SkipSelf() parentModule: ServiceModule) {
     if (parentModule) {
-      throw new Error('ServicesModule is already loaded. Import it in the AppModule only');
+      throw new Error(
+        "ServicesModule is already loaded. Import it in the AppModule only"
+      );
     }
   }
 }
